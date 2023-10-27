@@ -7,7 +7,9 @@ from router.playtime_genre import ptg
 from router.user_genre import ufg
 
 
-app = FastAPI()
+app = FastAPI(
+  title='System Recommendation to Steam Games: '
+)
 
 origins = ["*"]
 
