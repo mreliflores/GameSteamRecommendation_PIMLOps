@@ -1,0 +1,52 @@
+from fastapi import APIRouter, HTTPException
+from schemas.users_recommend import UsersRecommend_
+import pandas as pd
+
+ur = APIRouter()
+
+games = pd.read_csv('data\games.csv', lineterminator='\n')
+
+reviews = pd.read_csv('data\sentiment_analysis.csv', lineterminator='\n')
+
+recommend0 = reviews.recommend == 1
+sentiment0 = reviews.sentiment >= 1
+
+def UsersRecommend(year):
+  mask_year = reviews.year == year
+  query = reviews[
+      recommend0 & sentiment0 & mask_year
+  ]
+  query.reset_index(drop=True, inplace=True)
+  query = query.groupby(
+      by='id_game'
+  ).agg(count=('sentiment', 'count')).sort_values(
+      by='count', ascending=False
+  )
+
+  query = query.merge(games[['id_game', 'title']], on='id_game')
+
+  bests_games = []
+
+  for i, game in enumerate(query['title'].values):
+    item = {f'Position {i+1}': game}
+    bests_games.append(item)
+    if i+1 == 3:
+      break
+  print(bests_games)
+  return bests_games
+
+
+@ur.get("/{year}", response_model=list[UsersRecommend_])
+async def get_Recommend(
+  year: int
+):
+  """
+  Get recommend games
+  """
+  if year not in reviews['year'].values:
+    raise HTTPException(
+      status_code=404,
+      detail="Doesn't exists reviews in this year"
+    )
+  response = UsersRecommend(year)
+  return response
