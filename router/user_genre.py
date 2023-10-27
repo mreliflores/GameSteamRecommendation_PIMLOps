@@ -4,9 +4,9 @@ import pandas as pd
 
 ufg = APIRouter()
 
-playtime_per_user = pd.read_csv('data\playTimePerUser.csv', lineterminator='\n')
+playtime_per_user = pd.read_csv('data/playTimePerUser.csv', lineterminator='\n')
 
-genres_dummies = pd.read_csv('data\genres.csv', lineterminator='\n')
+genres_dummies = pd.read_csv('data/genres.csv', lineterminator='\n')
 
 def UserForGenre(genre):
   query = playtime_per_user[playtime_per_user[genre]==1].groupby(by='user_id', as_index=False).agg(playtime_forever=('playtime_forever', 'sum')).sort_values(by='playtime_forever', ascending=False)

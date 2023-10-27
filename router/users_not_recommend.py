@@ -4,9 +4,9 @@ import pandas as pd
 
 unr = APIRouter()
 
-games = pd.read_csv('data\games.csv', lineterminator='\n')
+games = pd.read_csv('data/games.csv', lineterminator='\n')
 
-reviews = pd.read_csv('data\sentiment_analysis.csv', lineterminator='\n')
+reviews = pd.read_csv('data/sentiment_analysis.csv', lineterminator='\n')
 
 recommend0 = reviews.recommend == 0
 sentiment0 = reviews.sentiment == 0

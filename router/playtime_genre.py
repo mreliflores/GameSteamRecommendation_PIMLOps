@@ -4,11 +4,11 @@ import pandas as pd
 
 ptg = APIRouter()
 
-games = pd.read_csv('data\games.csv', lineterminator='\n')
+games = pd.read_csv('data/games.csv', lineterminator='\n')
 
-genres_dummies = pd.read_csv('data\genres.csv', lineterminator='\n')
+genres_dummies = pd.read_csv('data/genres.csv', lineterminator='\n')
 
-playtime_per_game = pd.read_csv('data\playtimePerGame.csv', lineterminator='\n')
+playtime_per_game = pd.read_csv('data/playtimePerGame.csv', lineterminator='\n')
 
 
 def PlayTimeGenre(genre):

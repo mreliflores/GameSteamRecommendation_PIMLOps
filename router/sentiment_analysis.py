@@ -4,9 +4,9 @@ import pandas as pd
 
 sa = APIRouter()
 
-games = pd.read_csv('data\games.csv', lineterminator='\n')
+games = pd.read_csv('data/games.csv', lineterminator='\n')
 
-sentiment_analysis_table = pd.read_csv('data\sentiment_analysis.csv', lineterminator='\n')
+sentiment_analysis_table = pd.read_csv('data/sentiment_analysis.csv', lineterminator='\n')
 
 defaul_keys = ['negative', 'neutral', 'positive']
 
