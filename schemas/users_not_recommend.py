@@ -1,6 +1,6 @@
-from pydantic import root_model
+from .pydantic import RootModel
 
-class UsersNotRecommend_(root_model):
+class UsersNotRecommend_(RootModel):
   root: dict
   def __getitem__(self, item):
     return getattr(self, item)
