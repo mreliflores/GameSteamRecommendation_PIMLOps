@@ -1,4 +1,4 @@
-from .pydantic import RootModel
+from pydantic import RootModel
 
 class UsersNotRecommend_(RootModel):
   root: dict
