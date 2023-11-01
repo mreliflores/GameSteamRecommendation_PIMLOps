@@ -7,10 +7,25 @@ gr = APIRouter()
 
 games = pd.read_csv('data/games.csv', lineterminator='\n', index_col='id_game')
 
-features = pd.read_csv('data\MLFeatures.csv', lineterminator='\n', index_col='id_game')
+features = pd.read_csv('data/MLFeatures.csv', lineterminator='\n', index_col='id_game')
 
 def game_recommendation(id_game, df_feat):
+  df_feat = normalize(df_feat) #df_feat normalized
+  inputVec = df_feat.loc[id_game].values #gets values of the book_id inputed
+  df_feat['sim']= df_feat.apply(
+    lambda x: cosine_simmilarity(
+      inputVec,
+      x.values
+    ),
+    axis=1
+  ) #dot product calculated
 
+  simmilarity = df_feat['sim'].sort_values(
+    by='sim',
+    ascending=False
+  )
+
+  print(simmilarity)
   return None
 
 def normalize(df):
