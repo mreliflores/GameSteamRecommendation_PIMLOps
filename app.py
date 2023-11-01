@@ -5,6 +5,7 @@ from router.users_not_recommend import unr
 from router.users_recommend import ur
 from router.playtime_genre import ptg
 from router.user_genre import ufg
+from router.game_recomendation import gr
 
 
 app = FastAPI(
@@ -49,4 +50,10 @@ app.include_router(
   ufg,
   prefix="/user_for_genre",
   tags=["user_for_genre"]
+)
+
+app.include_router(
+  gr,
+  prefix="/item-item-recommend",
+  tags=["item-item-recommend"]
 )
