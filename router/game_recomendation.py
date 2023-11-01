@@ -51,5 +51,5 @@ async def get_game_recommendation(
       status_code=404,
       detail=f"The game doesn't exist."
     )
-  response = game_recommendation(id_game)
+  response = game_recommendation(id_game, features)
   return response
