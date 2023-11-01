@@ -8,7 +8,7 @@ from router.user_genre import ufg
 
 
 app = FastAPI(
-  title='System Recommendation to Steam Games: '
+  title='System Recommendation to Steam Games', 
 )
 
 origins = ["*"]
