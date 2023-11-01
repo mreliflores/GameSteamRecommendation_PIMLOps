@@ -21,7 +21,6 @@ def game_recommendation(id_game, df_feat):
   ) #dot product calculated
 
   simmilarity = df_feat['sim'].sort_values(
-    by='sim',
     ascending=False
   )
 
