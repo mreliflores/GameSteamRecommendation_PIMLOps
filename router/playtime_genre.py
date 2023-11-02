@@ -16,27 +16,28 @@ def PlayTimeGenre(genre):
   query = playtime_per_game.merge(
     games[['id_game', 'year']],
     on='id_game'
-  )
+  ) #Merge with game df to get release year
+
   query = query.merge(
     genres_dummies,
     on='id_game'
-  )
+  ) # Merge with genres_dummies df to enable the filtro by genre
   query.drop(
     columns=['id_game'],
     inplace=True
-  )
+  ) #Drop the unnecessary id_game column
   
   query.reset_index(drop=True, inplace=True)
 
   query = query[
-    query[genre]==1
+    query[genre]==1               #Filter by genre
   ].groupby(
-    by='year',
+    by='year',                    #Group by release year
     as_index=False
   ).agg(playtime_forever=(
-    'playtime_forever', 'sum'
+    'playtime_forever', 'sum'     #Apply aggregation funcion to playtime
   )).sort_values(
-    by='playtime_forever',
+    by='playtime_forever',        #Sort to get the most playtime
     ascending=False
   )
   

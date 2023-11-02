@@ -22,16 +22,16 @@ def game_recommendation(id_game, df_feat: pd.DataFrame):
 
   simmilarity = df_feat['sim'].sort_values(
     ascending=False
-  ).drop(id_game)
+  ).drop(id_game) #get only cosine simmilarity computed and drop the game inputed
 
   df_final = simmilarity.nlargest(
     20
-  )
+  )  #get 20 games to recommend
 
   recommended_games = games.loc[
     df_final.index
-  ]['title']
-  return recommended_games.sample(n=5)
+  ]['title']  #Get the name of the games to recommend
+  return recommended_games.sample(n=5)   #From 20 games I randomly take 5 games to recommend
 
 def normalize(df):
   return df.apply(
@@ -50,6 +50,20 @@ async def get_game_recommendation(
 ):
   """
   Recommendation system using cosine simmilarity
+  [
+    10,
+    20,
+    30,
+    40,
+    50,
+    346330,
+    373330,
+    388490,
+    521570,
+    519140
+  ]
+
+  You can input any id_game showed above
   """
   if id_game not in games.index:
     raise HTTPException(
