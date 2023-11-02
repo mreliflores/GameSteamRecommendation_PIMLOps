@@ -51,9 +51,17 @@ async def get_sentiment(
   year: int
 ):
   """
-  Obtener obras
+  Get sentiment analysis by release year
   """
-  if (year not in games['year'].values):
+  toFunctSA = games[
+      ['id_game', 'year']
+    ].merge(
+      sentiment_analysis_table[
+        ['id_game', 'sentiment']
+      ],
+      on='id_game'
+    )
+  if (year not in toFunctSA['year'].values):
     raise HTTPException(
       status_code=404,
       detail="This year doesn't exist in release year or there is not review for games with this release year"
