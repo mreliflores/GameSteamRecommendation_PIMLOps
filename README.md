@@ -18,7 +18,19 @@ Develop a recommendation system to give valuable reference to end costumer in hi
 
 The original datasets is not in this repository due its big size > 500MB. They are saved in a file in <a href="https://drive.google.com/drive/folders/1x2wj2gC2Ex9dw1S1Lv-UpDYhcYJgTQKz">Google Drive</a>.
 
+## Process
+
+*   ETL (Extraction, Transformation, Load). In order to achieve the goals the cleaning and necessary transformation (unnesting data) were done, so that getting clean and valuable data.
+
+*   EDA (Exploratory Data Analysis). By using pandas, numpy and visualization tools get interesting information like the best users (more playtime or items), the best game.
+
+*   A sentiment analysis was done with the aim to get a rating based in *negative*, *neutral* and *positive* review from the users.
+
+*   Finally, by using the mathematical tools like dot product (cosine simmilarity) over the features *genres*, *specs* and *tags* we get a recommendation system.
+
 ## Product
+
+The final product is showed below. Six functions return precious data about Steam business
 
 <p align="center">
   <a href="https://gamesteamrecommendation-pimlops.onrender.com/docs#/"><img src="assets/apiImage.png" alt="Api" height="450px"></a>
