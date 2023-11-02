@@ -9,7 +9,7 @@ games = pd.read_csv('data/games.csv', lineterminator='\n', index_col='id_game')
 
 features = pd.read_csv('data/MLFeatures.csv', lineterminator='\n', index_col='id_game')
 
-def game_recommendation(id_game, df_feat):
+def game_recommendation(id_game, df_feat: pd.DataFrame):
   df_feat = normalize(df_feat) #df_feat normalized
   inputVec = df_feat.loc[id_game].values #gets values of the book_id inputed
   df_feat['sim']= df_feat.apply(
@@ -22,10 +22,16 @@ def game_recommendation(id_game, df_feat):
 
   simmilarity = df_feat['sim'].sort_values(
     ascending=False
+  ).drop(id_game)
+
+  df_final = simmilarity.nlargest(
+    20
   )
 
-  print(simmilarity)
-  return None
+  recommended_games = games.loc[
+    df_final.index
+  ]['title']
+  return recommended_games.sample(n=5)
 
 def normalize(df):
   return df.apply(
