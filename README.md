@@ -17,3 +17,9 @@ Develop a recommendation system to give valuable reference to end costumer in hi
 ## Data
 
 The original datasets is not in this repository due its big size > 500MB. They are saved in a file in <a href="https://drive.google.com/drive/folders/1x2wj2gC2Ex9dw1S1Lv-UpDYhcYJgTQKz">Google Drive</a>.
+
+## Product
+
+<p align="center">
+  <a href="https://gamesteamrecommendation-pimlops.onrender.com/docs#/"><img src="assets/apiImage.png" alt="Api" height="450px"></a>
+</p>
