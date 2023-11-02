@@ -51,7 +51,11 @@ async def get_sentiment(
   year: int
 ):
   """
-  Get sentiment analysis by release year
+  Get sentiment analysis by release year. Suggested input:
+
+  [
+    1984 hasta el 2015
+  ]
   """
   toFunctSA = games[
       ['id_game', 'year']

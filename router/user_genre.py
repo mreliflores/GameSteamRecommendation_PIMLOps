@@ -54,7 +54,12 @@ async def get_user_more_playtime_genre(
   genre: str
 ):
   """
-  Obtener obras
+  Get the user with the most playtime by genre. Suggested input
+  [
+  action,
+  adventure,
+  indie
+  ]
   """
   if genre not in genres_dummies.columns:
     raise HTTPException(

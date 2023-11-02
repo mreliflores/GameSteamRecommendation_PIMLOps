@@ -57,7 +57,13 @@ async def get_more_playtime_genre(
   genre: str
 ):
   """
-  Obtener obras
+  Get the release year with the most playtime by genre. The suggested input is:
+
+  [
+  action,
+  adventure,
+  indie
+  ]
   """
   if genre not in genres_dummies.columns:
     raise HTTPException(

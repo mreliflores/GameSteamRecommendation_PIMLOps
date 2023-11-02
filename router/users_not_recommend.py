@@ -42,7 +42,7 @@ async def get_not_Recomend(
   year: int
 ):
   """
-  Get not recommend games
+  Get not recommend games. Suggested inputs from 2010 until 2015
   """
   if year not in reviews['year'].values:
     raise HTTPException(

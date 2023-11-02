@@ -59,8 +59,7 @@ async def get_game_recommendation(
     346330,
     373330,
     388490,
-    521570,
-    519140
+    521570
   ]
 
   You can input any id_game showed above
