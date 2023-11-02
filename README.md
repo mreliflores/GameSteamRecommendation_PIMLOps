@@ -10,7 +10,7 @@ Develop a recommendation system to give valuable reference to end costumer in hi
 
 #### Secondary goal
 
-Hola
+Preprocess the original dataset by using the Numpy and Pandas libraries, so that get more light and valuable data, i.e, make the ETL process. Furthermore, show a data visualization by using Seaborn library to find patterns or information about the metrics, e.g, the most playtime by user or game and so on. 
 
 ## Data
 
