@@ -6,6 +6,12 @@
 
 ## Goal
 
-Holaaa
+Develop a recommendation system to give valuable reference to end costumer in his/her searching about similar games. Therefore, make available some metrics to STEAM by deploying an API.
+
+#### Secondary goal
+
+Hola
 
 ## Data
+
+The original datasets is not in this repository due its big size > 500MB. They are saved in a file in <a href="https://drive.google.com/drive/folders/1x2wj2gC2Ex9dw1S1Lv-UpDYhcYJgTQKz">Google Drive</a>.
