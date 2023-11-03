@@ -12,7 +12,9 @@ Develop a recommendation system to give valuable reference to end costumer in hi
 
 *   Preprocess the original dataset by using the Numpy and Pandas libraries, so that get more light and valuable data, i.e, make the ETL process
 
-*   show a data visualization by using Seaborn library to find patterns or information about the metrics, e.g, the most playtime by user or game and so on. 
+*   Show a data visualization by using Seaborn library to find patterns or information about the metrics, e.g, the most playtime by user or game and so on.
+
+* Use render to deploy an API
 
 ## Data
 
@@ -35,3 +37,9 @@ The final product is showed below. Six functions return precious data about Stea
 <p align="center">
   <a href="https://gamesteamrecommendation-pimlops.onrender.com/docs#/"><img src="assets/apiImage.png" alt="Api" height="450px"></a>
 </p>
+
+## Conclusions
+
+*   We've taken the dirty data and got valuable data as much the user as Steam by executing the ETL and EDA
+*   We have created a very optimize API by using FastAPI framework.
+*   An API was deployed by using Git, Github and Render being the last a straightforward way to deploy any web services, but it has some limitations in the mode Free.

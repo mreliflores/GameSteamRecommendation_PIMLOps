@@ -58,7 +58,8 @@ async def get_user_more_playtime_genre(
   [
   action,
   adventure,
-  indie
+  indie,
+  education
   ]
   """
   if genre not in genres_dummies.columns:
