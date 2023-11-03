@@ -13,7 +13,7 @@ def game_recommendation(id_game, df_feat: pd.DataFrame):
   df_feat = normalize(df_feat) #df_feat normalized
   inputVec = df_feat.loc[id_game].values #gets values of the book_id inputed
   df_feat['sim']= df_feat.apply(
-    lambda x: cosine_simmilarity(
+    lambda x: cosine_similarity(
       inputVec,
       x.values
     ),
@@ -22,16 +22,16 @@ def game_recommendation(id_game, df_feat: pd.DataFrame):
 
   simmilarity = df_feat['sim'].sort_values(
     ascending=False
-  ).drop(id_game) #get only cosine simmilarity computed and drop the game inputed
+  ).drop(id_game) #get only cosine similarity computed and drop the game inputed
 
   df_final = simmilarity.nlargest(
     20
-  )  #get 20 games to recommend
+  )  #get 20 games to recommend (the most similar)
 
   recommended_games = games.loc[
     df_final.index
   ]['title']  #Get the name of the games to recommend
-  return recommended_games.sample(n=5)   #From 20 games I randomly take 5 games to recommend
+  return recommended_games.sample(n=5)   #From the most similar games I randomly take 5 games to recommend
 
 def normalize(df):
   return df.apply(
@@ -40,7 +40,7 @@ def normalize(df):
     result_type='expand'
   )
 
-def cosine_simmilarity(v1, v2):
+def cosine_similarity(v1, v2):
   return dot(v1, v2) / ( norm(v1) * norm(v2) )
 
 
@@ -49,7 +49,7 @@ async def get_game_recommendation(
   id_game: int
 ):
   """
-  Recommendation system using cosine simmilarity
+  Recommendation system using cosine similarity
   [
     10,
     20,
