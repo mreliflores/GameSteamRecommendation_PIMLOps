@@ -38,6 +38,8 @@ The final product is showed below. Six functions return precious data about Stea
   <a href="https://gamesteamrecommendation-pimlops.onrender.com/docs#/"><img src="assets/apiImage.png" alt="Api" height="450px"></a>
 </p>
 
+Visit it on https://gamesteamrecommendation-pimlops.onrender.com
+
 ## Conclusions
 
 *   We've taken the dirty data and got valuable data as much the user as Steam by executing the ETL and EDA
